@@ -1,0 +1,57 @@
+<div class="container">
+
+  <h1>Create a New Event</h1>
+
+
+
+  <form action="/events/create" method="post">
+    <label>Event: 
+      <input type=text name="event[title]"> 
+    </label>
+    <div id="event_error">
+      <%  @event.errors.each do |field, message| %>
+      <% if field == :title %>
+      <%= message %>
+      <% end %> 
+      <% end %> 
+    </div>
+
+
+    <label>Event Date:
+      <input type=text id="date_picker" name="event[date]" placeholder="MM/DD/YYYY">
+    </label>
+    <div id="event_error">
+      <%  @event.errors.each do |field, message| %>
+      <% if field == :date %>
+      <%= message %>
+      <% end %> 
+      <% end %>
+      </div> 
+
+
+      <label>Name: 
+        <input type=text name="event[organizer_name]">
+      </label>
+      <div id="event_error">
+        <%  @event.errors.each do |field, message| %>
+        <% if field == :organizer_name %>
+        <%= message %>
+        <% end %> 
+        <% end %> 
+        </div>
+
+        <label> Email: 
+          <input type=text name="event[organizer_email]">    
+        </label>
+        <div id="event_error">
+          <%  @event.errors.each do |field, message| %>
+          <% if field == :organizer_email %>
+          <%= message %>
+          <% end %> 
+          <% end %> 
+          </div>
+
+          <input type="submit">
+
+        </form>
+      </div>
